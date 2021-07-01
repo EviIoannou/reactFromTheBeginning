@@ -37,6 +37,6 @@ const data = [
 ]
 
 ReactDOM.render(
-    WHAT,
-    WHERE
+    <CatNav data={data} />,
+    document.getElementById('root')
 );
