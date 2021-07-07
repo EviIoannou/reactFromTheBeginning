@@ -1,25 +1,23 @@
 import React, { Component } from 'react';
 
-class StateInAction extends Component{
-    constructor(){
+class StateInAction extends Component {
+    constructor() {
         super();
         this.state = {
-            text: "State In Action"
+            text : "State in action"
         }
-        setTimeout(()=>{
-            // THIS IS BAD!!! DON'T DO THIS!
-            // this.state.text = "State Changed!!";
+        setTimeout(() => {
             this.setState({
-                text: "State Changed!!"
+                text: "State changed!"
             })
-        },2000)
+        }, 2000)
     }
 
-    render(){
+    render() {
         return(
-            <h1>{this.state.text} - {this.props.name}</h1>
+            <h1>{this.state.text}</h1>
         )
     }
 }
 
-export default StateInAction;
+export default StateInAction

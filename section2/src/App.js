@@ -1,24 +1,27 @@
 import React, { Component } from 'react';
 import './App.css';
+import StatePractice from './StatePractice';
+// import EventAndState from './EventAndState';
 // import StateInAction from './StateInAction';
-// import SimpleEvents from './SimpleEvents';
-// import EventAndState from './EventAndState'
-// import StatePractice from './StatePractice';
-import CardSet from './CardSet';
-import cards from './cards'
-
-console.log(cards)
 
 class App extends Component {
-  render() {
+  render (){
     return (
-      <div className="App">
-        <div className="row">
-          <CardSet cards={cards} />
+        <div className="App">
+            <StatePractice />
         </div>
-      </div>
-    );
+    )
   }
 }
+
+// Function component:
+
+// function App() {
+//   return (
+//     <div className="App">
+//         <h1>State check</h1>
+//     </div>
+//   );
+// }
 
 export default App;

@@ -1,49 +1,46 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react'
 
-class EventAndState extends Component{
-    constructor(){
+class EventAndState extends Component {
+    constructor() {
         super();
         this.state = {
-            inputText: ""
+            inputText : ""
         }
-        // this.handleChange = this.handleChange.bind(this);
+        // this.handleChange = this.handleChange.bind(this)
     }
-
-    handleClick = ()=>{
-        // console.log("Test")
+    handleClick = () => {
         this.setState({
             inputText: ""
         })
     }
 
-    handleChange = (event)=>{
-        // console.dir(event.target.value)
-        // this.state.inputText = event.target.value THIS IS BAD!!!
+    handleChange = (event) => {
+        // console.dir(event.target)
         this.setState({
             inputText: event.target.value
         })
-        console.log(this.state.inputText);
+        console.log(this.state.inputText)
     }
 
-    handleSumbit = (event)=>{
-        console.log("Form submitted!")
+    handleSubmit = (event) => {
         this.setState({
             inputText: "State is cool"
         })
+        console.log('Form submitted');
         event.preventDefault();
     }
 
-    render(){
-        return(
+    render () {
+        return (
             <div>
                 <h1>{this.state.inputText}</h1>
-                <form onSubmit={this.handleSumbit}>
-                    <button onClick={this.handleClick} className="btn">Click Me!</button>
-                    <input onChange={this.handleChange} type="text" placeholder="Enter some text!" />
+                <form onSubmit={this.handleSubmit}>
+                    <button onClick={this.handleClick}>Click me!</button>
+                    <input onChange={this.handleChange} type="text" placeholder="text here" />
                 </form>
             </div>
         )
     }
 }
 
-export default EventAndState;
+export default EventAndState

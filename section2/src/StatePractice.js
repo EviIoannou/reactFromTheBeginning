@@ -1,43 +1,51 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 
-class StatePractice extends Component{
-    constructor(){
+class StatePractice extends Component {
+    constructor() {
         super();
         this.state = {
-            message: ""
+            message: "",
+            imgWidth: "",
+            imageSrc: "https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg",
+            // imageSrc: "http://lorempixel.com/400/200/"
         }
     }
 
-    handleEnter = (event)=>{
+    handleFocus = (event) => {
+        this.setState({
+            message: "You agree to our terms and conditions by filling out this form"
+        })
+    }
+
+    emptyState = (event) => {
         this.setState({
             message: "",
-            imageWidth: ""
+            imgWidth: ""
         })
     }
 
-    handleFocus = (event)=>{
-        this.setState({
-            message: "You agree to our terms of service by filling out the form"
-        })
-    }
+    imageLoad = (event) => {
+        if(event.target.width > 400) {
+            console.log("Your image is too large")
 
-    imageLoad = (event)=>{
-        console.dir(event.target)
-        if(event.target.width > 100){
-            console.log("Your image is large!")
+            // Remove image on load if it is too large:
+
+            // this.setState({
+            //     imageSrc: ""
+            // })
         }
     }
 
-    render(){
-        return(
+    render() {
+        return (
             <div>
                 <input onFocus={this.handleFocus} type="text" />
-                <h3 onMouseEnter={this.handleEnter}>{this.state.message}</h3>
-                <img onLoad={this.imageLoad} src="https://upload.wikimedia.org/wikipedia/commons/a/a7/React-icon.svg" />
+                <h3 onMouseEnter={this.emptyState}>{this.state.message}</h3>
+                <img alt="" onLoad={this.imageLoad} src={this.state.imageSrc} />
             </div>
+
         )
     }
-
 }
 
-export default StatePractice;
+export default StatePractice
