@@ -1,17 +1,17 @@
 import React from 'react';
 
-function MultiCard(props){
+function MutliCard (props) {
 
     const question = props.questionData;
     console.log(question);
-    const choices = ['a','b','c','d'];
-    const options = question.options.map((option,i)=>{
+    const choices = ['a', 'b', 'c', 'd'];
+    const options = question.options.map((option, i) => {
         return(<li key={i}>{choices[i]}. {option}</li>)
     })
     const answerIndex = question.options.indexOf(question.answer);
     const answerLetter = choices[answerIndex];
 
-    return(
+    return (
         <div>
             <div className="card-back">
                 <div>{question.service}</div>
@@ -23,7 +23,7 @@ function MultiCard(props){
                 {answerLetter}. {question.answer}
             </div>
         </div>
-        )
-    }
-    
-export default MultiCard;
+    )
+}
+
+export default MutliCard;

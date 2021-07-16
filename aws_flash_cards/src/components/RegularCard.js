@@ -1,9 +1,10 @@
 import React from 'react';
 
-function RegularCard(props){
-    console.log(props.questionData);
+function RegularCard (props) {
+    console.log(props.questionData)
     const question = props.questionData;
-    return(
+
+    return (
         <div>
             <div className="card-back">
                 {question.service}
@@ -11,10 +12,10 @@ function RegularCard(props){
             <div className="card-front">
                 <div>{question.desc}</div>
                 <div>{question.cat}</div>
-            </div>
 
+            </div>
         </div>
-        )
-    }
-    
+    )
+}
+
 export default RegularCard;
