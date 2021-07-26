@@ -1,5 +1,5 @@
-// All reducers have 2 params:
-// 1. Current State, usually provide a default state
+// All reducers have two params:
+// 1. Current state, usually provide a default state 
 // 2. Info that came from any action
 
 const seedData = [
@@ -17,21 +17,25 @@ const seedData = [
     },
     {
         food: "salmon",
-        quantity: 135        
+        quantity: 59
     }
 ]
-
-export default (state = seedData, action)=>{
-    console.log("Meat Reducer is running!");
-    console.log(action);
-    if(action.type === 'updateMeat'){
+export default (state = seedData, action)=> {
+    if(action.type === 'updateMeat') {
+        // we make a copy of state because we NEVER mutate state
         const newState = [...state];
         const payload = action.payload;
-        newState[payload.index].quantity += payload.qChanage;
+        newState[payload.index].quantity += payload.qChange;
         return newState;
-    }else if(action.type === 'clearInventory'){
-        return [];        
-    }else{
+    }
+    else if(action.type === 'clearInventory'){
+        let newState = [...state];
+        newState.forEach((item,i)=> {
+            item.quantity = 0
+        })
+        return newState;
+    }
+    else {
         return state;
     }
 }

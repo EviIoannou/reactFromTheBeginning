@@ -1,8 +1,8 @@
-export default (qChanage, index)=>{
+export default (qChange, index)=> {
     return {
         type: 'updateMeat',
         payload: {
-            qChanage,
+            qChange,
             index
         }
     }

@@ -1,5 +1,4 @@
-export default (qChange,index)=>{
-    console.log("Updating produce inventory!!!")
+export default (qChange, index)=> {
     return {
         type: 'updateProduce',
         payload: {

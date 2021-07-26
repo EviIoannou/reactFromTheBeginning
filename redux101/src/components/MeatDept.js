@@ -1,30 +1,30 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import updateMeat from '../actions/meatInvUpdate';
 import { bindActionCreators } from 'redux';
+import updateMeat from '../actions/meatInvUpdate'
 
-class MeatDept extends Component{
-
-    increment = (qChanage, index)=>{
-        this.props.updateMeat(qChanage, index);
+class MeatDept extends Component {
+    increment = (qChange, index) =>{
+        this.props.updateMeat(qChange, index);
     }
-
-    render(){
-        const meatInventory = this.props.meatData.map((item,i)=>{
-            return(
+    
+    render() {
+        const meatInventory = this.props.meatData.map((item, i)=> {
+            return (
                 <div key={i}>
-                    <li>{item.food}: {item.quantity}</li>
-                    <input className="add-button" type="button" onClick={()=>{this.increment(1,i)}} value="+" />
-                    <input className="subtract-button" type="button" onClick={()=>{this.increment(-1,i)}} value="-" />
+                   <li>{item.food}: {item.quantity}</li> 
+                   <input type="button" onClick={()=>{this.increment(1, i)}} value="+"></input>
+                   <input type="button" onClick={()=>{this.increment(-1, i)}} value="-"></input>
                 </div>
             )
         })
+        
         return(
             <div>
-                <h1>The meat food department!</h1>
+                <h1>The meat food department</h1>
                 <ul>
-                    {meatInventory}
-                </ul>
+                    {meatInventory}  
+                </ul>               
             </div>
         )
     }
@@ -33,13 +33,13 @@ class MeatDept extends Component{
 
 function mapStateToProps(state){
     return {
-        meatData: state.meat,
-    }    
+        meatData: state.meat
+    }
 }
-
 function mapDispatchToProps(dispatch){
     return bindActionCreators({
         updateMeat: updateMeat
     }, dispatch)
 }
-export default connect(mapStateToProps,mapDispatchToProps)(MeatDept);
+
+export default connect(mapStateToProps, mapDispatchToProps)(MeatDept);

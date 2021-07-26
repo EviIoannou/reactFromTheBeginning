@@ -1,6 +1,5 @@
-export default ()=>{
-    console.log("Clear Inventory")
+export default ()=> {
     return {
-        type: 'clearInventory',
+        type: 'clearInventory'
     }
 }
