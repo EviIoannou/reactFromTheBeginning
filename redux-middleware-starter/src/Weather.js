@@ -2,11 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import fetchWeather from './actions/fetchWeather';
+import testThunk from './actions/testThunk';
 
 class Weather extends React.Component{
     state = {city: "London"}
     changeCity = (e)=>{this.setState({city:e.target.value})}
 
+    componentDidMount(){
+        this.props.testThunk();
+    }
+    
     render(){
         console.log(this.props.weather)
         const weather = this.props.weather
@@ -32,7 +37,8 @@ function mapStateToProps(state){
 
 function mapDispatchToProps(dispatch){
     return bindActionCreators({
-        fetchWeather: fetchWeather
+        fetchWeather: fetchWeather,
+        testThunk
     },dispatch);
 }
 

@@ -12,7 +12,7 @@ class WarmOrNot extends React.Component{
         }
 
         //There is a weather object!
-        if(weather.main.temp > 70){
+        if(weather.main.temp > 40){
             return(
                 <h3>It's warm!</h3>
             )
